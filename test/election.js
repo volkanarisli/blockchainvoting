@@ -17,12 +17,12 @@ contract("Election", function (accounts) {
             return electionInstance.candidates(1);
         }).then(function (candidate) {
             assert.equal(candidate[0], 1, "contains the correct id");
-            assert.equal(candidate[1], "Candidate 1", "contains the correct name");
+            assert.equal(candidate[1], "#teamcap", "contains the correct name");
             assert.equal(candidate[2], 0, "contains the correct votes count");
             return electionInstance.candidates(2);
         }).then(function (candidate) {
             assert.equal(candidate[0], 2, "contains the correct id");
-            assert.equal(candidate[1], "Candidate 2", "contains the correct name");
+            assert.equal(candidate[1], "#teamironman", "contains the correct name");
             assert.equal(candidate[2], 0, "contains the correct votes count");
         });
     });
@@ -55,11 +55,11 @@ contract("Election", function (accounts) {
             return electionInstance.candidates(1);
         }).then(function (candidate1) {
             var voteCount = candidate1[2];
-            assert.equal(voteCount, 1, "candidate 1 did not receive any votes");
+            assert.equal(voteCount, 1, "#teamcap did not receive any votes");
             return electionInstance.candidates(2);
         }).then(function (candidate2) {
             var voteCount = candidate2[2];
-            assert.equal(voteCount, 0, "candidate 2 did not receive any votes");
+            assert.equal(voteCount, 0, "#teamironman did not receive any votes");
         });
     });
 
@@ -79,11 +79,11 @@ contract("Election", function (accounts) {
             return electionInstance.candidates(1);
         }).then(function (candidate1) {
             var voteCount = candidate1[2];
-            assert.equal(voteCount, 1, "candidate 1 did not receive any votes");
+            assert.equal(voteCount, 1, "#teamcap did not receive any votes");
             return electionInstance.candidates(2);
         }).then(function (candidate2) {
             var voteCount = candidate2[2];
-            assert.equal(voteCount, 1, "candidate 2 did not receive any votes");
+            assert.equal(voteCount, 1, "#teamironman did not receive any votes");
         });
     });
 });
